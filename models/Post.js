@@ -6,7 +6,8 @@ class Post extends Model {
     return models.Vote.create({
       user_id: body.user_id,
       post_id: body.post_id
-    }).then(() => {
+    })
+    .then(() => {
       return Post.findOne({
         where: {
           id: body.post_id
