@@ -1,4 +1,3 @@
-//Comment on posts
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
