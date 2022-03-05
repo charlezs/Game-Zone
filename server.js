@@ -127,5 +127,3 @@ app.post(
         return res.send(response);
     }
 );
-
-
