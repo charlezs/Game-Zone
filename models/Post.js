@@ -1,6 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// create our Post model
+
+// create voting mech
+
 class Post extends Model {
   static upvote(body, models) {
     return models.Vote.create({
@@ -17,6 +19,7 @@ class Post extends Model {
           'post_url',
           'title',
           'created_at',
+          'img_url',
           [
             sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
             'vote_count'
@@ -62,6 +65,14 @@ Post.init(
       references: {
         model: 'user',
         key: 'id'
+      }
+    },
+    //Here is where the image URL will be saved
+    img_url: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isURL: true
       }
     }
   },
