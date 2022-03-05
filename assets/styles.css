@@ -9,21 +9,21 @@
 body,
 input {
   font-family: sans-serif;
-  background-color: aliceblue;
+  background-color: black;
 }
 
-/*.game-zone {
+.game-zone {
   font-family: "Press Start 2P";
   color: aliceblue;
   background-color: black;
-  text-align: center;
+  text-align: right;
   margin-top: 10px;
-} */
+}
 
 .container {
   position: relative;
-  width: 100%;
-  background-color: aliceblue;
+  width: 80%;
+  background-color: black;
   min-height: 100vh;
   overflow: hidden;
 }
@@ -40,7 +40,7 @@ input {
   content: "";
   position: absolute;
   height: 2000px;
-  width: 2000px;
+  width: 1000px;
   top: -10%;
   right: 48%;
   background-image: linear-gradient(
@@ -48,8 +48,7 @@ input {
     rgb(92, 11, 222) 0%,
     rgb(92, 11, 222) 100%
   );
-  transform: translateY(-50%);
-  border-radius: 50%;
+
   z-index: 6;
 }
 
@@ -70,7 +69,6 @@ form.sign-in-form {
 
 form.sign-up-form {
   z-index: 1;
-  opacity: 0;
 }
 
 .title {
@@ -150,7 +148,7 @@ form.sign-up-form {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: aliceblue;
+  color: rgb(92, 11, 222);
   font-size: 1.3rem;
   border-radius: 50%;
   transition: all 0.5s;
@@ -171,13 +169,14 @@ form.sign-up-form {
 }
 
 .image {
-  width: 80%;
+  width: 60%;
+  text-align: center;
 }
 
 .panels-container {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   top: 0;
   left: 0;
   display: grid;
@@ -209,11 +208,13 @@ form.sign-up-form {
   font-weight: 600;
   line-height: 1;
   font-size: 1.5rem;
+  color: aliceblue;
 }
 
 .panel p {
   font-size: 0.95rem;
   padding: 0.7rem 0;
+  color: aliceblue;
 }
 
 .btn.transparent {
