@@ -23,7 +23,7 @@ input {
 .container {
   position: relative;
   width: 100%;
-  background-color: black;
+  background-color: aliceblue;
   min-height: 100vh;
   overflow: hidden;
 }
@@ -50,6 +50,7 @@ input {
   );
   transform: translateY(-50%);
   border-radius: 50%;
+  z-index: 6;
 }
 
 form {
@@ -73,7 +74,7 @@ form.sign-up-form {
 }
 
 .title {
-  color: aliceblue;
+  color: hotpink;
   font-family: "Press Start 2P";
   font-size: 1.5rem;
   margin-bottom: 10px;
@@ -119,7 +120,7 @@ form.sign-up-form {
   height: 50px;
   width: 150px;
   border-radius: 55px;
-  background-color: rgb(92, 11, 222);
+  background-color: rgb(222, 16, 222);
   color: aliceblue;
   font-family: "Press Start 2P";
   font-weight: 600;
@@ -143,7 +144,7 @@ form.sign-up-form {
 .social-icon {
   height: 46px;
   width: 46px;
-  border: 1px solid aliceblue;
+  border: 1px solid green;
   margin: 0 0.45rem;
   display: flex;
   justify-content: center;
@@ -166,4 +167,66 @@ form.sign-up-form {
   display: grid;
   transform: translate(-50%, -50%);
   grid-template-columns: 1fr;
+  z-index: 5;
+}
+
+.image {
+  width: 80%;
+}
+
+.panels-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat (2, 1fr);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 7;
+}
+
+.left-panel {
+  padding: 3rem 17% 2rem 12%;
+}
+
+.right-panel {
+  padding: 3rem 12% 2rem 17%;
+}
+
+.panel.content {
+  color: aliceblue;
+}
+
+.panel h3 {
+  font-weight: 600;
+  line-height: 1;
+  font-size: 1.5rem;
+}
+
+.panel p {
+  font-size: 0.95rem;
+  padding: 0.7rem 0;
+}
+
+.btn.transparent {
+  margin: 0;
+  background: none;
+  border: 2px solid aliceblue;
+  width: 130px;
+  height: 41px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.right-panel .content,
+.right-panel .image {
+  transform: translatex(800px);
 }
