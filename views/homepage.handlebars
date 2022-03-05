@@ -1,4 +1,33 @@
-<!--On page search--> 
+<!DOCTYPE html>
+<head>
+    <title>Profile form</title>
+</head>
+<body>
+    <form method="POST" action="/profile-upload-single" enctype="multipart/form-data" >
+        <div>
+            <label>Upload profile picture</label>
+            <input type="file" name="profile-file" required/>
+        </div>
+        <div>
+            <input type="submit" value="Upload" />
+        </div>
+    </form>
+
+    <hr>
+
+    {{!-- <form method="POST" action="/profile-upload-multiple" enctype="multipart/form-data">
+        <div>
+            <label>Upload multiple profile picture</label>
+            <input type="file" name="profile-files" required multiple  />
+        </div>
+        <div>
+            <input type="submit" value="Upload" />
+        </div>
+    </form> --}}
+</body>
+</html>
+
+{{!-- <!--On page search--> 
 
 <!DOCTYPE html>
 <html>
@@ -20,4 +49,4 @@
 </ul>
 
 </body>
-</html>
+</html> --}}
