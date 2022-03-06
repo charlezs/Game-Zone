@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+
+<ol class="post-list">
+    {{#each posts as |post|}}
+    <li>
+        {{> post-info post}}
+    </li>
+    {{/each}}
+</ol>
+{{!-- <!DOCTYPE html>
 <head>
     <title>Profile form</title>
 </head>
@@ -23,9 +31,9 @@
         <div>
             <input type="submit" value="Upload" />
         </div>
-    </form> --}}
+    </form> 
 </body>
-</html>
+</html> --}}
 
 {{!-- <!--On page search--> 
 
