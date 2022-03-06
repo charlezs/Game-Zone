@@ -101,6 +101,7 @@ form.sign-up-form {
   font-weight: 600;
   line-height: 1;
   font-size: 1.5rem;
+  font-family: "Press Start 2P";
 }
 
 .panel p {
@@ -150,11 +151,21 @@ form.sign-up-form {
   left: 25%;
 }
 
+.container.sign-up-mode form.sign-in-form {
+  z-index: 1;
+  opacity: 0;
+}
+
+.container.sign-up-mode form.sign-up-form {
+  z-index: 2;
+  opacity: 1;
+}
+
 h1 {
   font-family: "Press Start 2P";
-  font-size: 2.5rem;
-  color: hotpink;
-  margin-bottom: 10px;
+  font-size: 2.2rem;
+  color: #ef3340;
+  margin: 10px;
   justify-content: center;
   text-align: center;
 }
@@ -162,7 +173,7 @@ h1 {
 h2 {
   font-family: "Press Start 2P";
   font-size: 1.5rem;
-  color: hotpink;
+  color: #ef3340;
 }
 
 .title {
