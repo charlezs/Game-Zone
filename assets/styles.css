@@ -12,17 +12,9 @@ input {
   background-color: black;
 }
 
-.game-zone {
-  font-family: "Press Start 2P";
-  color: aliceblue;
-  background-color: black;
-  text-align: right;
-  margin-top: 10px;
-}
-
 .container {
   position: relative;
-  width: 80%;
+  width: 100%;
   background-color: black;
   min-height: 100vh;
   overflow: hidden;
@@ -40,27 +32,23 @@ input {
   content: "";
   position: absolute;
   height: 2000px;
-  width: 1000px;
+  width: 2000px;
   top: -10%;
   right: 48%;
-  background-image: linear-gradient(
-    -45deg,
-    rgb(92, 11, 222) 0%,
-    rgb(92, 11, 222) 100%
-  );
-
+  background-image: linear-gradient(-45deg, #7707c7 0%, #7707d7 100%);
+  transform: translateY(-50%);
+  border-radius: 50%;
   z-index: 6;
+  transition: 1.8s ease-in-out;
 }
-
 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
   padding: 0 5rem;
-  padding: 0 5rem;
-  grid-column: 1/2;
-  grid-row: 1/2;
 }
 
 form.sign-in-form {
@@ -69,118 +57,22 @@ form.sign-in-form {
 
 form.sign-up-form {
   z-index: 1;
-}
-
-.title {
-  color: hotpink;
-  font-family: "Press Start 2P";
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  margin-top: 100px;
-}
-
-.input-field {
-  max-width: 380px;
-  width: 100%;
-  height: 55px;
-  background-color: rgb(92, 11, 222);
-  margin: 10px 0;
-  border-radius: 55px;
-  display: grid;
-  grid-template-columns: 15% 85%;
-  padding: 0 0.4rem;
-  position: relative;
-}
-
-.input-field i {
-  text-align: center;
-  line-height: 55px;
-  color: aliceblue;
-  font-size: 1.3rem;
-}
-
-.input-field input {
-  background: none;
-  border: none;
-  outline: none;
-  color: hotpink;
-  line-height: 1;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-.input-field input:placeholder-shown {
-  color: hotpink;
-}
-.btn {
-  outline: none;
-  border: none;
-  height: 50px;
-  width: 150px;
-  border-radius: 55px;
-  background-color: rgb(222, 16, 222);
-  color: aliceblue;
-  font-family: "Press Start 2P";
-  font-weight: 600;
-  margin: 10px 0;
-  text-transform: uppercase;
-  transition: all 0.5s;
-}
-
-.btn:hover {
-  background-color: green;
-}
-
-.social-text {
-  padding: 0.7rem 0;
-}
-
-.social-media {
-  display: flex;
-  justify-content: center;
-}
-.social-icon {
-  height: 46px;
-  width: 46px;
-  border: 1px solid green;
-  margin: 0 0.45rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: rgb(92, 11, 222);
-  font-size: 1.3rem;
-  border-radius: 50%;
-  transition: all 0.5s;
-}
-
-.social-icon:hover {
-  color: hotpink;
-  border-color: hotpink;
-}
-.signin-signup {
-  position: absolute;
-  top: 50%;
-  left: 75%;
-  display: grid;
-  transform: translate(-50%, -50%);
-  grid-template-columns: 1fr;
-  z-index: 5;
+  opacity: 0;
 }
 
 .image {
-  width: 60%;
-  text-align: center;
+  width: 100%;
+  transition: 1.2s 0.4s ease-in-out;
 }
 
 .panels-container {
   position: absolute;
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   display: grid;
-  grid-template-columns: repeat (2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .panel {
@@ -197,30 +89,29 @@ form.sign-up-form {
 }
 
 .right-panel {
-  padding: 3rem 12% 2rem 17%;
+  padding: 3rem 17% 2rem 17%;
 }
 
-.panel.content {
-  color: aliceblue;
+.panel .content {
+  color: white;
+  transition: 0.9s 0.6s ease-in-out;
 }
 
 .panel h3 {
   font-weight: 600;
   line-height: 1;
   font-size: 1.5rem;
-  color: aliceblue;
 }
 
 .panel p {
   font-size: 0.95rem;
   padding: 0.7rem 0;
-  color: aliceblue;
 }
 
 .btn.transparent {
   margin: 0;
   background: none;
-  border: 2px solid aliceblue;
+  border: 2px solid white;
   width: 130px;
   height: 41px;
   font-weight: 600;
@@ -229,5 +120,116 @@ form.sign-up-form {
 
 .right-panel .content,
 .right-panel .image {
-  transform: translatex(800px);
+  transform: translateX(800px);
+}
+
+.container.sign-up-mode::before {
+  transform: translate(100%, -50%);
+  right: 52%;
+}
+
+.container.sign-up-mode .left-panel .image,
+.container.sign-up-mode .left-panel .content {
+  transform: translate(-800px);
+}
+
+.container.sign-up-mode .right-panel .image,
+.container.sign-up-mode .right-panel .content {
+  transform: translate(0%);
+}
+
+.container.sign-up-mode .left-panel {
+  pointer-events: none;
+}
+
+.container.sign-up-mode .right-panel {
+  pointer-events: all;
+}
+
+.container.sign-up-mode .signin-signup {
+  left: 25%;
+}
+
+h1 {
+  font-family: "Press Start 2P";
+  font-size: 2.5rem;
+  color: hotpink;
+  margin-bottom: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Press Start 2P";
+  font-size: 1.5rem;
+  color: hotpink;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.input-field {
+  max-width: 380px;
+  width: 100%;
+  height: 55px;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  font-size: 1.5rem;
+}
+
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.input-field input:placeholder-shown {
+  color: #aaa;
+  font-weight: 500;
+}
+
+.btn {
+  width: 150px;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  background-color: #7707c7;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  background-color: greenyellow;
+}
+
+.signin-signup {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: 1fr;
+  z-index: 5;
 }
