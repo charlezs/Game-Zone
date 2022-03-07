@@ -9,64 +9,52 @@
     <title>Game Zone</title>
   </head>
   <body>
-    <div class="container">
-      <div class="forms-container">
-        <div class="signin-signup">
-          <form action="#" class="sign-in-form">
-            <h1>Welcome to Game Zone</h1>
-            <h2>Sign In</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
-            </div>
-            <input type="submit" class="btn solid" value="Login" />
-          </form>
-        </div>
-        <div class="signup-signup">
-          <form action="#" class="sign-up-form">
-            <h2>Sign Up</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
-            </div>
-            <input type="submit" class="btn solid" value="Login" />
-          </form>
-        </div>
+    <div class="heading">
+      <h1>WELCOME TO GAME ZONE</h1>
+    </div>
+    <image src="assets/gamer.png" class="img"></image>
+    <div class="wrapper">
+      <div class="title-text">
+        <div class="title login">Login Form</div>
+        <div class="title signup">Sign Up Form</div>
       </div>
-      <div class="panels-container">
-        <div class="panel left-panel">
-          <div class="content">
-            <h3>New Here?</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis,beatae iste. Quisquam, totam?
-            </p>
-            <button class="btn transparent" id="sign-up-button">Sign Up</button>
-          </div>
-          <img src="./assets/game-zone.png" alt="" class="image" />
+      <div class="form-container">
+        <div class="slide-controls">
+          <input type="radio" name="slider" id="login" checked />
+          <input type="radio" name="slider" id="signup" checked />
+          <label for="login" class="slide login">Login</label>
+          <label for="signup" class="slide signup">Signup</label>
+          <div class="slide-tab"></div>
         </div>
-        <div class="panel right-panel">
-          <div class="content">
-            <h3>One of us</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Facilis,beatae iste. Quisquam, totam?
-            </p>
-            <button class="btn transparent" id="sign-in-button">Sign In</button>
-          </div>
-          <img src="./assets/gamer.png" alt="" class="image" />
+
+        <div class="form-inner">
+          <form action="#" class="login">
+            <div class="field">
+              <input type="email" placeholder="Email" required />
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" required />
+            </div>
+            <div class="pass-link"><a href="#">Forgot password?</a></div>
+            <div class="field">
+              <input type="submit" value="Login" />
+            </div>
+            <div class="signup-link">Join Us! <a href="#">Sign up Now</a></div>
+          </form>
+          <form action="#" class="signup">
+            <div class="field">
+              <input type="text" placeholder="Username" required />
+            </div>
+            <div class="field">
+              <input type="email" placeholder="Email" required />
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" required />
+            </div>
+            <div class="field">
+              <input type="submit" value="Signup" />
+            </div>
+          </form>
         </div>
       </div>
     </div>

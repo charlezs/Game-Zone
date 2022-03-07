@@ -1,11 +1,19 @@
-const sign_in_btn = document.querySelector("#sign-in-button");
-const sign_up_btn = document.querySelector("#sign-up-button");
-const container = document.querySelector(".container");
-
-sign_up_btn.addEventListener("click", () => {
-  container.classList.add("sign-up-mode");
-});
-
-sign_in_btn.addEventListener("click", () => {
-  container.classList.remove("sign-up-mode");
-});
+const loginForm = document.querySelector("form.login");
+const signupForm = document.querySelector("form.signup");
+const loginBtn = document.querySelector("label.login");
+const signupBtn = document.querySelector("label.signup");
+const signupLink = document.querySelector(".signup-link a");
+const loginText = document.querySelector(".title-text .login");
+const signupText = document.querySelector(".title-text .signup");
+signupBtn.onclick = () => {
+  loginForm.style.marginLeft = "-50%";
+  loginText.style.marginLeft = "-50%";
+};
+loginBtn.onclick = () => {
+  loginForm.style.marginLeft = "0%";
+  loginText.style.marginLeft = "0%";
+};
+signupLink.onclick = () => {
+  signupBtn.click();
+  return false;
+};
