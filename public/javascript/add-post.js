@@ -24,18 +24,18 @@ async function newFormHandler(event) {
         alert(response.statusText);
     }
 }
-document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+// document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
 
 // var file = {}
-//to preview image before it is uploaded-triggered on choose file button
-// var loadFile = function(event) {
-//     var output = document.getElementById('img-preview');
-//     file=event.target.files[0]
-//     output.src= URL.createObjectURL(event.target.files[0]);
-//     output.onload = function() {
-//         URL.revokeObjectURL(output.src)
-//     }
-// };
+// // to preview image before it is uploaded-triggered on choose file button
+var loadFile = function(event) {
+    var output = document.getElementById('img-preview');
+    file=event.target.files[0]
+    output.src= URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+        URL.revokeObjectURL(output.src)
+    }
+};
 
 
 

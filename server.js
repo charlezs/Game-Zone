@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const multer = require('multer');
 const fs = require("fs");
 
 const app = express();
@@ -36,6 +35,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/uploads", express.static("uploads"));
 
 app.use(require('./controllers/'));
+
+//veedit's image upload
+if (!fs.existsSync("../../uploads")) {
+    fs.mkdirSync("../../uploads");
+  }
 
 // //For image upload
 // if (!fs.existsSync("./uploads")) {
@@ -128,3 +132,4 @@ sequelize.sync({ force: false }).then(() => {
 //https://api.cloudinary.com/v1_1/<cloud name>/<resource_type>/upload
 
 
+// https://www.youtube.com/watch?v=LWB1s6P0wgE
