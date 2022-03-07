@@ -15,7 +15,7 @@ router.get('/', withAuth, (req, res) => {
         'title',
         'created_at',
         //adding in img
-        'img_url',
+        // 'img_url',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
@@ -51,7 +51,7 @@ router.get('/', withAuth, (req, res) => {
         'title',
         'created_at',
         //adding in img
-        'img_url',
+        // 'img_url',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [

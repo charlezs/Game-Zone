@@ -1,12 +1,20 @@
-<article class="post">
-      <div class="title">
-        <a href="{{post_url}}" target="_blank">{{title}}</a>
-        <span>({{format_url post_url}})</span>
-      </div>
-      <div class="meta">
-        {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on
-        {{format_date created_at}}
-        |
-        <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-      </div>
-    </article>
+<article>
+
+    <img src="/assets/images/GZ-default-01.jpg" class="card-img-top" />
+
+    <div class="card-body">
+        <div class="card-title">
+            <a href="{{post_url}}" target="_blank">{{title}}</a>
+            <span class="card-text">({{format_url post_url}})</span>
+            by {{user.username}} on {{format_date created_at}}
+        </div>
+        <div class="meta">
+            <div>
+                {{vote_count}} {{format_plural "point" vote_count}}
+                |</div>
+            <div></div>
+            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+        </div>
+    </div>
+    </div>
+</article>

@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
       'title',
       'created_at',
       //Bring up image in post
-      'img_url',
+      // 'img_url',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
@@ -49,7 +49,7 @@ router.get('/', (req, res) => {
         'title',
         'created_at',
         //Adding in image
-        'img_url',
+        // 'img_url',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
@@ -87,7 +87,7 @@ router.post('/', (req, res) => {
       post_url: req.body.post_url,
       user_id: req.session.user_id,
       //Adding in create image
-      img_url: req.body.img_url
+      // img_url: req.body.img_url
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
