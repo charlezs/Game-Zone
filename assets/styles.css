@@ -53,6 +53,7 @@ h1:hover {
   width: 50%;
   font-size: 35px;
   font-weight: 600;
+  text-transform: uppercase;
   text-align: center;
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
