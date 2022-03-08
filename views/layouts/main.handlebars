@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Zone</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/all.min.css" />
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <header class="d-flex flex-row">
+    <div>
+        <header>
             <h1>
                 <a href="/">Game Zone</a>
             </h1>
@@ -27,9 +28,6 @@
         <main>
             {{{ body }}}
         </main>
-        <footer>
-            Thanks for visiting!
-        </footer>
     </div>
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>

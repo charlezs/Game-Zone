@@ -1,11 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 * {
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    background-color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
 }
 
+html,
+body {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: #f2f2f2;
+  background: black;
+}
+/* Some of Jenns CSS */
 header {
     justify-content: space-between;
     align-items: center;
@@ -18,4 +29,168 @@ margin:20px;
 nav {
     display: inline-flex;
     margin: 10px 20px 10px;
+}
+/* end of Jenns CSS */
+
+h1 {
+  font-size: 4rem;
+  font-family: "Press Start 2P";
+  color: white;
+  margin-top: 25px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  transition: 0.5s;
+}
+
+h1:hover {
+  background: #5e17eb;
+  color: white;
+  box-shadow: 0 0 5px #5e17eb, 0 0 25px #5e17eb, 0 0 50px #5e17eb,
+    0 0 200px #5e17eb;
+}
+
+.wrapper {
+  max-width: 390px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.wrapper .title-text {
+  display: flex;
+  width: 200%;
+}
+
+.wrapper .title-text .title {
+  width: 50%;
+  font-size: 35px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .form-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.form-container .slide-controls {
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  margin: 30px 0 10px 0;
+  overflow: hidden;
+  border-radius: 5px;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  line-height: 50px;
+  cursor: pointer;
+  transition: all 0.6 ease;
+}
+
+.slide-controls .slide {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.slide-controls .signup {
+  color: black;
+}
+
+.slide-controls .slide-tab {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  left: 0;
+  z-index: 0;
+  border-radius: 5px;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  background: yellowgreen;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+#signup:checked ~ .slide-tab {
+  left: 50%;
+}
+
+#signup:checked ~ .signup {
+  color: white;
+}
+#signup:checked ~ .login {
+  color: black;
+}
+.form-container .form-inner {
+  display: flex;
+  width: 200%;
+}
+.form-container .form-inner form {
+  width: 50%;
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-inner form .field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.form-inner form .field input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 15px;
+  font-size: 17px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  border-bottom-width: 2px;
+  transition: all 0.4 ease;
+}
+
+.form-inner form .field input:focus {
+  border-color: #fc83bb;
+}
+
+.form-inner form .pass-link {
+  margin-top: 5px;
+}
+
+.form-inner form .pass-link a,
+.form-inner form .signup-link a {
+  color: #fa4299;
+  text-decoration: none;
+}
+
+.form-inner form .signup-link {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.form-inner form .pass-link a:hover,
+.form-inner form .signup-link a:hover {
+  text-decoration: underline;
+}
+
+form .field input[type="submit"] {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding-left: 0px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: #5e17eb;
 }
