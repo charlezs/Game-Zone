@@ -19,13 +19,8 @@
         <button type="button" class="delete-post-btn">Delete post</button>
     </form>
 {{!-- edit picture --}}
-    <form class="new-post-form" method="POST" action="/api/posts/image" enctype="multipart/form-data">
-        <label>Upload Picture</label>
-        <img src="{{img_url}}" id="img-preview" />
-        <input type="file" accept="image/*" onchange="loadFile(event)" name="profile-file" id="choose-file" Required />
+<div id="gameImg"></div>
 
-        <button type="submit" class="btn">Create</button>
-    </form>
 
 {{!-- add comment --}}
     <form class="comment-form">

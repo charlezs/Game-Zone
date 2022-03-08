@@ -134,6 +134,30 @@ router.post('/', (req, res) => {
       });
   });
 
+  // router.put('/pic/:id', (req, res) => {
+  //   Post.update(
+  //     {
+  //       img_url: req.body.img_url
+  //     },
+  //     {
+  //       where: {
+  //         id: req.params.id
+  //       }
+  //     }
+  //   )
+  //     .then(dbPostData => {
+  //       if (!dbPostData) {
+  //         res.status(404).json({ message: 'No post found with this id' });
+  //         return;
+  //       }
+  //       res.json(dbPostData);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       res.status(500).json(err);
+  //     });
+  // });
+
 
 
 
@@ -198,18 +222,60 @@ router.post('/', (req, res) => {
   //         return res.send(response);
   //     }
   // );
+
+  // router.put('/pic/:id', (req, res) => {
+  //   Post.update(
+  //     {
+  //       img_url: req.body.img_url
+  //     },
+  //     {
+  //       where: {
+  //         id: req.params.id
+  //       }
+  //     }
+  //   )
+  //     .then(dbPostData => {
+  //       if (!dbPostData) {
+  //         res.status(404).json({ message: 'No post found with this id' });
+  //         return;
+  //       }
+  //       res.json(dbPostData);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       res.status(500).json(err);
+  //     });
+  // });
+
+
   router.post(
-    "/image",
+    "/image/:id",
     upload.single('profile-file'),
     async (req, res, next) => {
-      console.log(JSON.stringify(req.file));
       var localFilePath = req.file.path;
-       var result = await uploadToCloudinary(localFilePath);
-     
-      return res.send(result);
-  
+       var res = await uploadToCloudinary(localFilePath);
+       Post.update(
+        {
+          img_url: res.url
+        },
+        {
+          where: {
+            id: req.params.id
+          }
+        }
+      )
+        .then(dbPostData => {
+          if (!dbPostData) {
+            res.status(404).json({ message: 'No post found with this id' });
+            return;
+          }
+          document.location.replace('/dashboard/');
+        })
+        .catch(err => {
+          console.log(err);
+        });
     });
-  
+
   
   module.exports = router;
 
