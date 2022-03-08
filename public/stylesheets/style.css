@@ -46,7 +46,9 @@ nav {
     margin: 10px 20px 10px;
     align-items: center;
 }
-
+.dashboard-icon{
+    margin-top: 70px;
+}
 
 .title h2{
     font-family: Arial, Helvetica, sans-serif;
