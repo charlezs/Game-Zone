@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <section class="col">
-      <h2>Create New Post</h2>
+      <h2 class="dashboard-title text-center">Create New Post</h2>
 
       <form class="new-post-form" method="POST" action="/dashboard" enctype="multipart/form-data">
         <div>
@@ -12,13 +12,6 @@
           <label for="post-url">Link</label>
           <input id="post-url" name="post-url" />
         </div>
-        {{!-- <div>
-          <label>Upload Picture</label>
-          <img src="{{img_url}}" id="img-preview" />
-          <input type="file" accept="image/*" onchange="loadFile(event)" name="profile-file" id="choose-file"
-            Required />
-
-        </div> --}}
         <button type="submit" class="btn">Create</button>
       </form>
 
@@ -27,11 +20,11 @@
     <section class="col">
       {{#if posts.length}}
       <section>
-        <h2>Your Posts</h2>
-        <ol>
+        <h2 class="dashboard-title text-center">Your Posts</h2>
+        <ol class="post-list">
           {{#each posts as |post|}}
           <li>
-            {{> post-info post}}
+            {{> post-details-small post}}
             <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
           </li>
           {{/each}}

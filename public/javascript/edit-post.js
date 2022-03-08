@@ -30,11 +30,11 @@ function loadPage() {
         window.location.toString().split('/').length - 1];
     let html = ` 
     <form class="new-post-form" method="POST" action="/api/posts/image/${id}" enctype="multipart/form-data">
-        <label>Upload Picture</label>
-        <img src="{{img_url}}" id="img-preview" />
+        <label>New Picture</label>
+        <div class=upload-container>
         <input type="file" accept="image/*" onchange="loadFile(event)" name="profile-file" id="choose-file" Required />
-
-        <button type="submit" class="btn">Create</button>
+        </div>
+        <button type="submit" class="btn save-image">Save Image</button>
     </form>`
     formContainer.innerHTML = html
     }

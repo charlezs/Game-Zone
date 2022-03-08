@@ -19,6 +19,10 @@ body {
   background-repeat: no-repeat;
 }
 /* Some of Jenns CSS */
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
 
 main {
     padding: 2rem;
@@ -35,16 +39,6 @@ font-family: "Press Start 2P";
 color:#f2f2f2; 
 font-size: 2vw;
 text-decoration: none;
-}
-header button{
-    color:white;
-    font-size: 20px;
-    height: 30%;
-    background-color: #5e17eb;
-    border-radius: 1vw;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
 }
 
 nav {
@@ -83,6 +77,9 @@ height: 20rem;
     width: 100%;
 
 }
+.post-list {
+    list-style: none;
+}
 .post-details{
     background-color: rgba(255,255,255,.75);
     padding: 1rem;
@@ -90,6 +87,19 @@ height: 20rem;
     border-radius: 4px;
     width:90%;
     margin: auto;
+}
+.post-details-small{
+    background-color: rgba(255,255,255,.75);
+    padding: 3px;
+    border: solid 2px deepskyblue;
+    border-radius: 4px;
+    width:90%;
+    margin: auto;
+    height: 20vh;
+}
+.small-container{
+    height: 100%;
+    margin:auto;
 }
 .display-img{
     height: 100%;
@@ -106,15 +116,114 @@ height: 20rem;
     color: rgb(88, 88, 88);
     margin: auto;
 }
+.details-title-small{
+    color:deepskyblue;
+    font-weight: bold;
+    font-size: 16px;
+}
+.details-text-small{
+    font-size: 14px;
+    color: rgb(88, 88, 88);
+    margin: auto;
+}
 .details-author{
     font-weight: bold;
     color: rgb(153, 152, 152);
-    margin-top: 10px;
+    margin-top: 14px;
 }
 .details-user{
-    font-size: 2vw;
+    font-size: 16px;
     color: black;
 }
+.details-author-small{
+    font-size: 10px;
+    font-weight: bold;
+    color: rgb(68, 66, 66);
+    margin-top: auto
+}
+.details-small-counts{
+    font-size: 10px;
+    margin: auto;
+}
+.dashboard-title{
+    margin:auto;
+    padding: 10px;
+    color: deepskyblue;
+    font-weight: bold;
+    font-size: 26px;
+   margin-bottom: 10px;
+   border-bottom: solid 2px #5e17eb;
+}
+.comment-heading{
+    margin:auto;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 26px;
+   margin-top: 10px;
+   border-top: solid 4px #5e17eb
+}
+
+.comment-form label,
+.edit-post-form label,
+.new-post-form label{
+    color: white;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.new-post-form input{
+    width:100%;
+}
+.title-input{
+    width:100%;
+}
+.btn{
+    color:white;
+    font-size: 20px;
+    background-color: #5e17eb;
+    border-radius: 1vw;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.btn:hover {
+    color: white;
+    box-shadow: 0px 0px 8px 2px deepskyblue;
+    }
+.delete-post-btn{
+    color:white;
+    font-size: 20px;
+    background-color:rgb(245, 153, 49);
+    border-radius: 1vw;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    }
+.delete-post-btn:hover {
+    box-shadow: 0px 0px 8px 2px red;
+}
+.save-image{
+    margin-right: auto;
+}
+.edit-link{
+    color: white;
+    font-size: 12px;
+    background-color: #5e17eb;
+    border-radius: 1vw;
+    border: none;
+    padding: 3px;
+    cursor: pointer;
+    margin: 15px;
+    margin-top: 10px;
+    text-decoration: none;
+}
+.edit-link:hover {
+    color: white;
+    box-shadow: 0px 0px 8px 2px deepskyblue;
+    }
 
 .card-title a{
     text-decoration: none !important;
@@ -170,6 +279,22 @@ height: 20rem;
 }
 .name {
     color: deepskyblue
+}
+.example{
+    height: 30vh;
+}
+.upload-container{
+    color: white;
+    background: rgba(3, 3, 51, 0.75);
+    margin: auto;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: solid 2px deepskyblue;
+    border-radius: 4px;
+    width:80%;
+}
+.format-fix{
+   margin-left:70px;
 }
 
 /* end of Jenns CSS */
