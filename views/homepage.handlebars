@@ -3,9 +3,9 @@
         <h2>Community Games</h2>
         <p> visit, comment, and vote on games made by your peers</p>
     </div>
-    <div class="row">
+    <div class="row card-deck">
         {{#each posts as |post|}}
-        <div class="col-3">
+        <div class="col-l-3 col-m-4">
             <div class="card text-center">
                 <img src="{{img_url}}" class="card-img-top" />
                 {{> post-info post}}

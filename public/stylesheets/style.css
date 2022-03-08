@@ -69,6 +69,8 @@ height: 20rem;
 
 .card img {
     height: 50%;
+    width: 100%;
+
 }
 .comment {
     background: rgba(3, 3, 51, 0.75);
