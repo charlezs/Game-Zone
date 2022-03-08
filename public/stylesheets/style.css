@@ -182,8 +182,8 @@ height: 20rem;
     color: white;
     font-weight: bold;
     font-size: 26px;
-   margin-top: 10px;
-   border-top: solid 4px #5e17eb
+   margin-top: 25px;
+   border-top: solid 3px #5e17eb
 }
 
 .comment-form label,
@@ -312,6 +312,12 @@ height: 20rem;
     border-radius: 4px;
     width:80%;
 }
+.start-img{
+height: 50vh;
+}
+.form-block{
+    margin:auto;
+}
 .format-fix{
    margin-left:70px;
 }
@@ -322,7 +328,7 @@ height: 20rem;
 /* end of Jenns CSS */
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   font-family: "Press Start 2P";
   color: white;
   margin-top: 25px;

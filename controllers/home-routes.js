@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
         'img_url',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
+      order: [['created_at', 'DESC']],
       include: [
         {
           model: Comment,
