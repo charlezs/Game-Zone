@@ -1,8 +1,5 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const upload = require('../utils/multer');
-const cloudinary = require('../utils/cloudinary');
-const fs = require("fs");
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -97,71 +94,72 @@ router.get('/edit/:id', withAuth, (req, res) => {
 
 
 
-async function uploadToCloudinary(locaFilePath) {
-  var mainFolderName = "main";
+// async function uploadToCloudinary(locaFilePath) {
+//   var mainFolderName = "main";
 
-  var filePathOnCloudinary =
-    mainFolderName + "/" + locaFilePath;
+//   var filePathOnCloudinary =
+//     mainFolderName + "/" + locaFilePath;
 
-  return cloudinary.uploader
-    .upload(locaFilePath)
-    .then((result) => {
-      fs.unlinkSync(locaFilePath);
+//   return cloudinary.uploader
+//     .upload(locaFilePath)
+//     .then((result) => {
+//       fs.unlinkSync(locaFilePath);
 
-      return {
-        message: "Success",
-        url: result.url,
-      };
-    })
-    .catch((error) => {
+//       return {
+//         message: "Success",
+//         url: result.url,
+//       };
+//     })
+//     .catch((error) => {
 
-      // Remove file from local uploads folder
-      fs.unlinkSync(locaFilePath);
-      return { message: "Fail" };
-    });
-}
+//       // Remove file from local uploads folder
+//       fs.unlinkSync(locaFilePath);
+//       return { message: "Fail" };
+//     });
+// }
 
-function buildSuccessMsg(urlList) {
+// function buildSuccessMsg(urlList) {
 
-  // Building success msg to display on screen
-  var response = `<h1>
-                 <a href="/">Click to go to Home page</a><br>
-                </h1><hr>`;
-  for (var i = 0; i < urlList.length; i++) {
-    response += "File uploaded successfully.<br><br>";
-    response += `FILE URL: <a href="${urlList[i]}">
-                  ${urlList[i]}</a>.<br><br>`;
-    response += `<img src="${urlList[i]}" width="200" height="200"/><br><hr>`;
-  }
+//   // Building success msg to display on screen
+//   var response = `<h1>
+//                  <a href="/">Click to go to Home page</a><br>
+//                 </h1><hr>`;
+//   for (var i = 0; i < urlList.length; i++) {
+//     response += "File uploaded successfully.<br><br>";
+//     response += `FILE URL: <a href="${urlList[i]}">
+//                   ${urlList[i]}</a>.<br><br>`;
+//     response += `<img src="${urlList[i]}" width="200" height="200"/><br><hr>`;
+//   }
 
-  response += `<br>
-<p>Now you can store this url in database or 
-// do anything with it  based on use case.</p>
-`;
-  return response;
-}
+//   response += `<br>
+// <p>Now you can store this url in database or 
+// // do anything with it  based on use case.</p>
+// `;
+//   return response;
+// }
 
+// // router.post(
+// //     "/upload",
+// //     upload.single('profile-file'),
+// //     async(req, res, next) => {
+// //         console.log(JSON.stringify(req.file));
+// //         var locaFilePath = req.file.path;
+// //         var result = await uploadToCloudinary(locaFilePath);
+// //         var response = buildSuccessMsg([result.url]);
+// //         return res.send(response);
+// //     }
+// // );
 // router.post(
-//     "/upload",
-//     upload.single('profile-file'),
-//     async(req, res, next) => {
-//         console.log(JSON.stringify(req.file));
-//         var locaFilePath = req.file.path;
-//         var result = await uploadToCloudinary(locaFilePath);
-//         var response = buildSuccessMsg([result.url]);
-//         return res.send(response);
-//     }
-// );
-router.post(
-  "/",
-  upload.single('profile-file'),
-  async (req, res, next) => {
-    console.log(JSON.stringify(req.file));
-    var localFilePath = req.file.path;
-     var result = await uploadToCloudinary(localFilePath);
-    res.json(result);
+//   "/",
+//   upload.single('profile-file'),
+//   async (req, res, next) => {
+//     console.log(JSON.stringify(req.file));
+//     var localFilePath = req.file.path;
+//      var result = await uploadToCloudinary(localFilePath);
+//     //  var response = buildSuccessMsg([result.url]);
+//     return res.send(result);
 
-  });
+//   });
 
 
 module.exports = router;

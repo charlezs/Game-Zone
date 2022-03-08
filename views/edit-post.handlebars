@@ -1,30 +1,42 @@
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
-    Edit Post
-  </h2>
-  <form class="edit-post-form">
-    <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
-    </div>
-    <div>
-      {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
-      |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
-    </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
-  </form>
-  <form class="comment-form">
-  <div>
-    <textarea name="comment-body"></textarea>
-  </div>
+    <a href="/dashboard"> &larr; Back to dashboard</a>
+    <h2>
+        Edit Post
+    </h2>
 
-  <div>
-    <button type="submit">add comment</button>
-  </div>
-</form>
+    {{!-- edit title --}}
+    <form class="edit-post-form">
+        <div>
+            <input name="post-title" type="text" value="{{post.title}}" />
+            <span>({{format_url post.post_url}})</span>
+        </div>
+        <div>
+            {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
+            |
+            <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+        </div>
+        <button type="submit">Save post</button>
+        <button type="button" class="delete-post-btn">Delete post</button>
+    </form>
+{{!-- edit picture --}}
+    <form class="new-post-form" method="POST" action="/api/posts/image" enctype="multipart/form-data">
+        <label>Upload Picture</label>
+        <img src="{{img_url}}" id="img-preview" />
+        <input type="file" accept="image/*" onchange="loadFile(event)" name="profile-file" id="choose-file" Required />
+
+        <button type="submit" class="btn">Create</button>
+    </form>
+
+{{!-- add comment --}}
+    <form class="comment-form">
+        <div>
+            <textarea name="comment-body"></textarea>
+        </div>
+
+        <div>
+            <button type="submit">add comment</button>
+        </div>
+    </form>
 </article>
 
 {{> comments post.comments}}

@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const { Post, User, Vote, Comment } = require("../../models");
 const sequelize = require('../../config/connection');
+const upload = require('../../utils/multer');
+const cloudinary = require('../../utils/cloudinary');
+const fs = require("fs");
 
 // get all users
 router.get('/', (req, res) => {
@@ -11,8 +14,8 @@ router.get('/', (req, res) => {
       'post_url',
       'title',
       'created_at',
-      //Bring up image in post
-      // 'img_url',
+      // Bring up image in post
+      'img_url',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
@@ -48,8 +51,8 @@ router.get('/', (req, res) => {
         'post_url',
         'title',
         'created_at',
-        //Adding in image
-        // 'img_url',
+        // Adding in image
+        'img_url',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
       include: [
@@ -86,8 +89,6 @@ router.post('/', (req, res) => {
       title: req.body.title,
       post_url: req.body.post_url,
       user_id: req.session.user_id,
-      //Adding in create image
-      // img_url: req.body.img_url
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
@@ -132,6 +133,120 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
       });
   });
+
+
+
+
+
+
+
+
+
+
+  async function uploadToCloudinary(locaFilePath) {
+    var mainFolderName = "main";
+  
+    var filePathOnCloudinary =
+      mainFolderName + "/" + locaFilePath;
+  
+    return cloudinary.uploader
+      .upload(locaFilePath)
+      .then((result) => {
+        fs.unlinkSync(locaFilePath);
+  
+        return {
+          message: "Success",
+          url: result.url,
+        };
+      })
+      .catch((error) => {
+  
+        // Remove file from local uploads folder
+        fs.unlinkSync(locaFilePath);
+        return { message: "Fail" };
+      });
+  }
+  
+  // function buildSuccessMsg(urlList) {
+  
+  //   // Building success msg to display on screen
+  //   var response = `<h1>
+  //                  <a href="/">Click to go to Home page</a><br>
+  //                 </h1><hr>`;
+  //   for (var i = 0; i < urlList.length; i++) {
+  //     response += "File uploaded successfully.<br><br>";
+  //     response += `FILE URL: <a href="${urlList[i]}">
+  //                   ${urlList[i]}</a>.<br><br>`;
+  //     response += `<img src="${urlList[i]}" width="200" height="200"/><br><hr>`;
+  //   }
+  
+  //   response += `<br>
+  // <p>Now you can store this url in database or 
+  // // do anything with it  based on use case.</p>
+  // `;
+  //   return response;
+  // }
+  
+  // router.post(
+  //     "/upload",
+  //     upload.single('profile-file'),
+  //     async(req, res, next) => {
+  //         console.log(JSON.stringify(req.file));
+  //         var locaFilePath = req.file.path;
+  //         var result = await uploadToCloudinary(locaFilePath);
+  //         var response = buildSuccessMsg([result.url]);
+  //         return res.send(response);
+  //     }
+  // );
+  router.post(
+    "/image",
+    upload.single('profile-file'),
+    async (req, res, next) => {
+      console.log(JSON.stringify(req.file));
+      var localFilePath = req.file.path;
+       var result = await uploadToCloudinary(localFilePath);
+     
+      return res.send(result);
+  
+    });
+  
+  
+  module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   router.delete('/:id', (req, res) => {
     Post.destroy({

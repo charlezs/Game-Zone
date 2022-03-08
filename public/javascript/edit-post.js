@@ -23,4 +23,15 @@ async function editFormHandler(event) {
   }
   
   document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
+
+
+  // // to preview image before it is uploaded-triggered on choose file button
+var loadFile = function(event) {
+    var output = document.getElementById('img-preview');
+    file=event.target.files[0]
+    output.src= URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+        URL.revokeObjectURL(output.src)
+    }
+};
   
