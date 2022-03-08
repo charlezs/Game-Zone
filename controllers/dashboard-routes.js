@@ -14,8 +14,8 @@ router.get('/', withAuth, (req, res) => {
       'post_url',
       'title',
       'created_at',
-      //adding in img
-      // 'img_url',
+      // adding in img
+      'img_url',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
@@ -50,8 +50,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
       'post_url',
       'title',
       'created_at',
-      //adding in img
-      // 'img_url',
+      // adding in img
+      'img_url',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
