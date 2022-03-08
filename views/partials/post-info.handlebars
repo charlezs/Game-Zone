@@ -6,10 +6,10 @@
     <p>by <span class="user">{{user.username}}</span> on {{format_date created_at}}</p>
     <div class="d-flex flex-row justify-content-between">
         <div>
-            {{vote_count}} {{format_plural "point" vote_count}}
+            <span class="point-total">{{vote_count}}</span> {{format_plural "point" vote_count}}
             |</div>
         <div>
-            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+            <a class="stretched-link" href="/post/{{id}}"><span class="comment-total">{{comments.length}}</span> {{format_plural "comment" comments.length}}</a>
         </div>
     </div>
 </div>

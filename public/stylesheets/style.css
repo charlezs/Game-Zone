@@ -72,12 +72,32 @@ height: 20rem;
 .card-body{
     height:50%;
     padding: 8px 16px;
+    font-weight: bold;
+    color: rgb(121, 118, 118);
 }
 
 .card img {
     height: 50%;
     width: 100%;
 
+}
+.card-title{
+    color: deepskyblue;
+    font-size: 18px;
+}
+
+.card-title a{
+    text-decoration: none !important;
+}
+
+.user{
+    color: white;
+}
+.point-total{
+    color: #5e17eb;
+}
+.comment-total{
+    color: deepskyblue;
 }
 .post-list {
     list-style: none;
@@ -227,9 +247,6 @@ height: 20rem;
     box-shadow: 0px 0px 8px 2px deepskyblue;
     }
 
-.card-title a{
-    text-decoration: none !important;
-}
 .text-area{
     width:80%;
     margin: auto;
