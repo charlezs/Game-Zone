@@ -80,3 +80,7 @@ THEN I can comment on the post or upvote
 
 # Questions
 Please contact me through the following methods!
+
+> [My Github account](https://github.com/charles-nyabeze)
+
+> <a href="mailto:charlesnnyabeze@gmail.com">My Email</a> 
