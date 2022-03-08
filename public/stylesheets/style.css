@@ -13,30 +13,43 @@ body {
   height: 100%;
   width: 100%;
   place-items: center;
-  background: #f2f2f2;
   background: black;
+  background-image: url("https://wallpapercave.com/wp/wp9391637.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 /* Some of Jenns CSS */
+
 main {
     padding: 2rem;
 }
 header {
     justify-content: space-between;
     align-items: center;
+    /* background-image: url("https://wallpapercave.com/dwp1x/pwxYOVn.jpg"); */
 }
 
 header a {
-margin:20px;
+margin:3rem;
 font-family: "Press Start 2P";
 color:#f2f2f2; 
+font-size: 2vw;
+text-decoration: none;
 }
-
-
-
+header button{
+    color:#ada9a9;
+}
 
 nav {
     display: inline-flex;
     margin: 10px 20px 10px;
+}
+
+
+.title h2{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 4vw;
+    color:#ada9a9; 
 }
 
 .card {
@@ -57,6 +70,27 @@ height: 20rem;
 .card img {
     height: 50%;
 }
+.comment {
+    background: rgba(3, 3, 51, 0.75);
+    margin: 2rem 0;
+    padding: 1rem;
+    border: solid 2px deepskyblue;
+    border-radius: 4px;
+}
+.comment-title {
+    color: rgb(135, 28, 223);
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 2px;
+
+}
+.comment-text {
+    color: white;
+}
+.name {
+    color: deepskyblue
+}
+
 /* end of Jenns CSS */
 
 h1 {
@@ -221,3 +255,4 @@ form .field input[type="submit"] {
   cursor: pointer;
   background: #5e17eb;
 }
+
