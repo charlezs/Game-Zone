@@ -1,14 +1,14 @@
-{{> post-info post}}
+{{> post-details post}}
 
 {{#if loggedIn}}
 <form class="comment-form">
     <div>
-        <textarea name="comment-body"></textarea>
+        <textarea class="form-control text-area" name="comment-body"></textarea>
     </div>
 
-    <div>
-        <button type="submit">add comment</button>
+    <div class="button-holder d-flex flex-row justify-content-around">
         <button type="button" class="upvote-btn">upvote</button>
+        <button class="comment-btn" type="submit">add comment</button>
     </div>
 </form>
 {{/if}}

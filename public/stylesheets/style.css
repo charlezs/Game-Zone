@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Times New Roman", Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 html,
@@ -37,19 +37,30 @@ font-size: 2vw;
 text-decoration: none;
 }
 header button{
-    color:#ada9a9;
+    color:white;
+    font-size: 20px;
+    height: 30%;
+    background-color: #5e17eb;
+    border-radius: 1vw;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
 }
 
 nav {
     display: inline-flex;
     margin: 10px 20px 10px;
+    align-items: center;
 }
 
 
 .title h2{
-    font-family: "Times New Roman", Times, serif;
-    font-size: 4vw;
-    color:#ada9a9; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2vw;
+    color:white; 
+}
+.title p{
+    color:#ada9a9;
 }
 
 .card {
@@ -72,15 +83,83 @@ height: 20rem;
     width: 100%;
 
 }
-.comment {
-    background: rgba(3, 3, 51, 0.75);
-    margin: 2rem 0;
+.post-details{
+    background-color: rgba(255,255,255,.75);
     padding: 1rem;
     border: solid 2px deepskyblue;
     border-radius: 4px;
+    width:90%;
+    margin: auto;
+}
+.display-img{
+    height: 100%;
+    width:100%
+}
+
+.details-title{
+    color:deepskyblue;
+    font-weight: bold;
+    font-size: 4vw;
+}
+.details-text{
+    font-size: 2vw;
+    color: rgb(88, 88, 88);
+    margin: auto;
+}
+.details-author{
+    font-weight: bold;
+    color: rgb(153, 152, 152);
+    margin-top: 10px;
+}
+.details-user{
+    font-size: 2vw;
+    color: black;
+}
+
+.card-title a{
+    text-decoration: none !important;
+}
+.text-area{
+    width:80%;
+    margin: auto;
+    margin-top: 20px;
+}
+.button-holder{
+    width:100%;
+    margin-top: 10px;
+}
+.comment-btn{
+    color: white;
+    font-size: 20px;
+    height: 30%;
+    background-color: #5e17eb;
+    border-radius: 1vw;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+}
+.upvote-btn{
+    color: white;
+    font-size: 20px;
+    height: 30%;
+    background-color:deepskyblue;
+    border-radius: 1vw;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.comment {
+    background: rgba(3, 3, 51, 0.75);
+    margin: auto;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: solid 2px deepskyblue;
+    border-radius: 4px;
+    width:80%;
 }
 .comment-title {
-    color: rgb(135, 28, 223);
+    color: #5e17eb;
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 2px;
