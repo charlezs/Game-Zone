@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="title text-center">
+        <h2>Community Games</h2>
+        <p> visit, comment, and vote on games made by your peers</p>
+    </div>
+    <div class="row card-deck">
+        {{#each posts as |post|}}
+        <div class="col-l-3 col-m-4">
+            <div class="card text-center">
+                <img src="{{img_url}}" class="card-img-top" />
+                {{> post-info post}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+{{!--
+<!DOCTYPE html>
+
+<head>
+    <title>Profile form</title>
+</head>
+
+<body>
+    <form method="POST" action="/profile-upload-single" enctype="multipart/form-data">
+        <div>
+            <label>Upload profile picture</label>
+            <input type="file" name="profile-file" required />
+        </div>
+        <div>
+            <input type="submit" value="Upload" />
+        </div>
+    </form>
+
+    <hr>
+
+    {{!-- <form method="POST" action="/profile-upload-multiple" enctype="multipart/form-data">
+        <div>
+            <label>Upload multiple profile picture</label>
+            <input type="file" name="profile-files" required multiple />
+        </div>
+        <div>
+            <input type="submit" value="Upload" />
+        </div>
+    </form>
+</body>
+
+</html> --}}
+
+{{!--
+<!--On page search-->
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+
+<body>
+
+    <h2>Filter List</h2>
+
+    <p>Search for a name in the input field:</p>
+    <!--Input Filed that searches through the following li for matchtching text-->
+    <input oninput="w3.filterHTML('#id01', 'li', this.value)" placeholder="Search for names..">
+
+    <!--Essentially we will need to import each Title or Post into this list up to you guys!-->
+    <ul id="id01">
+        <li>Some text to search</li>
+        <li>Some other text to search</li>
+    </ul>
+
+</body>
+
+</html> --}}

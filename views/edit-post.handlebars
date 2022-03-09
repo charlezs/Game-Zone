@@ -1,0 +1,60 @@
+<h2 class="dashboard-title text-center">
+    Edit Post
+</h2>
+<div class="row">
+    <article class="col-6 text-center">
+
+        {{!-- edit title --}}
+        <form class="edit-post-form">
+            <div>
+                <label>New Title</label>
+                <input class="title-input" name="post-title" type="text" value="{{post.title}}" />
+            </div>
+            <div class="d-flex flex-row justify-content-between">
+                <button class="btn" type="submit">Save post</button>
+                <button type="button" class="delete-post-btn">Delete post</button>
+            </div>
+        </form>
+        {{!-- edit picture --}}
+        <div id="gameImg"></div>
+
+    </article>
+
+    <div class="example col-6">
+        <div class="card">
+            <img src="{{post.img_url}}" class="display-img card-img-top" id="img-preview" />
+            <div class="card-body text-center">
+                <h5 class="card-title" id="title-preview">{{ post.title}}</h5>
+                <h6>{{format_url post.post_url}}</h6>
+                <div>
+                    created on {{format_date post.created_at}}
+                    <p class="format-cheat"><span class="point-total">{{post.vote_count}}</span> {{format_plural "point" post.vote_count}}
+                    |
+                    <a href="/post/{{post.id}}"><span class="comment-total">{{post.comments.length}}</span> {{format_plural "comment"
+                        post.comments.length}}</a>
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- add comment --}}
+<form class="comment-form">
+    <div>
+        <div>
+            <h2 class="comment-heading text-center"></h2>
+            <textarea class="form-control text-area" name="comment-body"></textarea>
+        </div>
+
+        <div class="format-fix">
+            <button class="btn" type="submit">add comment</button>
+        </div>
+    </div>
+</form>
+
+{{> comments post.comments}}
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script>

@@ -1,0 +1,18 @@
+<div class=" post-details-small row">
+    <div class="small-container col-6 text-center">
+        <div class="details-title-small">{{title}}</div>
+        <a href="{{post_url}}" class="details-text-small" target="_blank">{{format_url post_url}}</a>
+        <p class="details-author-small text-center">on {{format_date created_at}}</p>
+        <div class="details-small-counts d-flex flex-row justify-content-between mt-auto">
+            <div>
+                {{vote_count}} {{format_plural "point" vote_count}}
+                |</div>
+            <div>
+                <div>{{comments.length}} {{format_plural "comment" comments.length}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="small-container col-6">
+        <img class="display-img" src="{{img_url}}" />
+    </div>
+</div>
