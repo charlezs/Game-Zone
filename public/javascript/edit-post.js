@@ -1,5 +1,3 @@
-
-
 async function editFormHandler(event) {
     event.preventDefault();
 
@@ -40,7 +38,7 @@ function loadPage() {
     }
 
 
-// // to preview image before it is uploaded-triggered on choose file button
+// to preview image before it is uploaded-triggered on choose file button
 var loadFile = function (event) {
     var output = document.getElementById('img-preview');
     file = event.target.files[0]
