@@ -4,42 +4,8 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const fs = require("fs");
 
-//const bodyParser = require("body-parser");
-///const fileUpload = require('express-fileupload')
-
-//const bodyParser = require("body-parser");
-
-//const fileupload = require("express-fileupload");
-
-//const fileUpload = multer();
 const app = express();
 const PORT = process.env.PORT || 3001;
-//app.use(fileupload());
-
-//const streamifier = require('streamifier')
-//const Formidable = require('formidable');
-const sequelize = require("./config/connection");
-//app.use(bodyParser.json());
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-//app.use(fileUpload());
-const sess = {
-    secret: 'Super secret secret',
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
-};
-
-// require('dotenv').config();
-// key = "716937511967295";
-//const cloudinary = require('cloudinary').v2;
-app.use(session(sess));
-
-//const upload = multer({ dest: 'uploads/' });
-
-const helpers = require('./utils/helpers');
 
 const sequelize = require("./config/connection");
 //app.use(bodyParser.json());
