@@ -1,33 +1,55 @@
-<form class="login-form">
-  <div>
-    <label for="email-login">email:</label>
-    <input type="text" id="email-login" />
-  </div>
-  <div>
-    <label for="password-login">password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <div>
-    <button type="submit">login</button>
-  </div>
-</form>
+{{!-- HABON'S CODE --}}
 
-<form class="signup-form">
-  <div>
-    <label for="username-signup">username:</label>
-    <input type="text" id="username-signup" />
-  </div>
-  <div>
-    <label for="email-signup">email:</label>
-    <input type="text" id="email-signup" />
-  </div>
-  <div>
-    <label for="password-signup">password:</label>
-    <input type="password" id="password-signup" />
-  </div>
-  <div>
-    <button type="submit">signup</button>
-  </div>
-</form>
+<div class="container text-center">
+<div class="heading text-center">
+      <h1>WELCOME TO GAME ZONE</h1>
+    </div>
+    <image src="/assets/images/gamer.png" class="img start-img"></image>
+    <div class="wrapper form-block">
+      <div class="title-text">
+        <div class="title login">Login Form</div>
+        <div class="title signup">Sign Up Form</div>
+      </div>
+      <div class="form-container">
+        <div class="slide-controls">
+          <input type="radio" name="slider" id="login" checked />
+          <input type="radio" name="slider" id="signup" checked />
+          <label for="login" class="slide login">Login</label>
+          <label for="signup" class="slide signup">Sign Up</label>
+          <div class="slide-tab"></div>
+        </div>
+
+        <div class="form-inner">
+          <form action="#" class="login">
+            <div class="field">
+              <input id="email-login" type="email" placeholder="Email" required />
+            </div>
+            <div class="field">
+              <input id="password-login" type="password" placeholder="Password" required />
+            </div>
+            <div class="pass-link"><a href="#">Forgot password?</a></div>
+            <div class="field">
+              <input type="submit" value="Login" />
+            </div>
+            <div class="signup-link">Join Us! <a href="#">Sign up Now</a></div>
+          </form>
+          <form action="#" class="signup">
+            <div class="field">
+              <input id="username-signup" type="text" placeholder="Username" required />
+            </div>
+            <div class="field">
+              <input id="email-signup" type="email" placeholder="Email" required />
+            </div>
+            <div class="field">
+              <input id="password-signup" type="password" placeholder="Password" required />
+            </div>
+            <div class="field">
+              <input type="submit" value="Sign up" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </div>
 
 <script src="/javascript/login.js"></script>

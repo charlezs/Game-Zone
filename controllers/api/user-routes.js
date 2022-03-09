@@ -21,7 +21,8 @@ router.get('/:id', (req, res) => {
             },
             include: [{
                     model: Post,
-                    attributes: ['id', 'title', 'post_url', 'created_at']
+                    //Adding in img here
+                    attributes: ['id', 'title', 'post_url', 'created_at', 'img_url']
                 },
                 {
                     model: Comment,

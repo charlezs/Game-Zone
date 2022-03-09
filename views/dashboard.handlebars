@@ -1,52 +1,39 @@
-<section>
-  <h2>Create New Post</h2>
+<div class="container">
+  <div class="row">
+    <section class="col">
+      <h2 class="dashboard-title text-center">Create New Post</h2>
 
-  <form class="new-post-form" >
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
-    </div>
-    <div>
-      <label for="post-url">Link</label>
-      <input id="post-url" name="post-url" />
-    </div>
-   {{!-- <form method="POST" action="/profile-upload-single" enctype="multipart/form-data" >
+      <form class="new-post-form" method="POST" action="/dashboard" enctype="multipart/form-data">
         <div>
-            <label>Upload profile picture</label>
-            <input type="file" name="profile-file" required/>
+          <label for="post-title">Title</label>
+          <input type="text" id="post-title" name="post-title" />
         </div>
         <div>
-            <input type="submit" value="Upload" />
+          <label for="post-url">Link</label>
+          <input id="post-url" name="post-url" />
         </div>
-    </form> --}}
+        <button type="submit" class="btn">Create</button>
+      </form>
 
-    <hr>
+    </section>
 
-    {{!-- <form method="POST" action="/profile-upload-multiple" enctype="multipart/form-data">
-        <div>
-            <label>Upload multiple profile picture</label>
-            <input type="file" name="profile-files" required multiple  />
-        </div>
-        <div>
-            <input type="submit" value="Upload" />
-        </div>
-    </form> --}}
-    <button type="submit" class="btn">Create</button>
-  </form>
-</section>
+    <section class="col">
+      {{#if posts.length}}
+      <section>
+        <h2 class="dashboard-title text-center">Your Posts</h2>
+        <ol class="post-list">
+          {{#each posts as |post|}}
+          <li>
+            {{> post-details-small post}}
+            <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+          </li>
+          {{/each}}
+        </ol>
+      </section>
+      {{/if}}
+    </section>
+  </div>
+</div>
 
-{{#if posts.length}}
-<section>
-  <h2>Your Posts</h2>
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
 
 <script src="/javascript/add-post.js"></script>

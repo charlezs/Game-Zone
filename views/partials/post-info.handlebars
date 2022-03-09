@@ -1,11 +1,15 @@
-<article class="post">
-  <div class="title">
-    <a href="{{post_url}}" target="_blank">{{title}}</a>
-    <span>({{format_url post_url}})</span>
-  </div>
-  <div class="meta">
-    {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
-    |
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-  </div>
-</article>
+<div class="card-body">
+    <div class="card-title">
+        <a href="{{post_url}}" target="_blank">{{title}}</a>
+    </div>
+    <p class="card-text">({{format_url post_url}})</p>
+    <p>by <span class="user">{{user.username}}</span> on {{format_date created_at}}</p>
+    <div class="d-flex flex-row justify-content-between">
+        <div>
+            <span class="point-total">{{vote_count}}</span> {{format_plural "point" vote_count}}
+            |</div>
+        <div>
+            <a class="stretched-link" href="/post/{{id}}"><span class="comment-total">{{comments.length}}</span> {{format_plural "comment" comments.length}}</a>
+        </div>
+    </div>
+</div>

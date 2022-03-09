@@ -1,32 +1,39 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// create our Post model
+
+// create voting mech
+
 class Post extends Model {
     static upvote(body, models) {
         return models.Vote.create({
-            user_id: body.user_id,
-            post_id: body.post_id
-        }).then(() => {
-            return Post.findOne({
-                where: {
-                    id: body.post_id
-                },
-                attributes: [
-                    'id',
-                    'post_url',
-                    'title',
-                    'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-                ],
-                include: [{
-                    model: models.Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                    include: {
-                        model: models.User,
-                        attributes: ['username']
-                    }
-                }]
+                user_id: body.user_id,
+                post_id: body.post_id
+            })
+            .then(() => {
+                return Post.findOne({
+                    where: {
+                        id: body.post_id
+                    },
+                    attributes: [
+                        'id',
+                        'post_url',
+                        'title',
+                        'created_at',
+                        'img_url', [
+                            sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
+                            'vote_count'
+                        ]
+                    ],
+                    include: [{
+                        model: models.Comment,
+                        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                        include: {
+                            model: models.User,
+                            attributes: ['username']
+                        }
+                    }]
+                });
             });
-        });
     }
 }
 
@@ -55,6 +62,11 @@ Post.init({
             model: 'user',
             key: 'id'
         }
+    },
+    // Here is where the image URL will be saved
+    img_url: {
+        type: DataTypes.STRING,
+        defaultValue: "/assets/images/GZ-default-01.jpg"
     }
 }, {
     sequelize,
