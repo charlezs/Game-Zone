@@ -1,7 +1,7 @@
 <section>
   <h2>Create New Post</h2>
 
-  <form class="new-post-form">
+  <form class="new-post-form" >
     <div>
       <label for="post-title">Title</label>
       <input type="text" id="post-title" name="post-title" />
@@ -10,13 +10,27 @@
       <label for="post-url">Link</label>
       <input id="post-url" name="post-url" />
     </div>
-     <div>
+   {{!-- <form method="POST" action="/profile-upload-single" enctype="multipart/form-data" >
+        <div>
             <label>Upload profile picture</label>
             <input type="file" name="profile-file" required/>
         </div>
         <div>
             <input type="submit" value="Upload" />
         </div>
+    </form> --}}
+
+    <hr>
+
+    {{!-- <form method="POST" action="/profile-upload-multiple" enctype="multipart/form-data">
+        <div>
+            <label>Upload multiple profile picture</label>
+            <input type="file" name="profile-files" required multiple  />
+        </div>
+        <div>
+            <input type="submit" value="Upload" />
+        </div>
+    </form> --}}
     <button type="submit" class="btn">Create</button>
   </form>
 </section>

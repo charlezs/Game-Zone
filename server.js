@@ -2,21 +2,21 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const multer = require('multer');
+
 //const bodyParser = require("body-parser");
 ///const fileUpload = require('express-fileupload')
 
 //const bodyParser = require("body-parser");
-const fs = require("fs");
+
 //const fileupload = require("express-fileupload");
 
 //const fileUpload = multer();
 const app = express();
 const PORT = process.env.PORT || 3001;
 //app.use(fileupload());
-const cloudinary = require('cloudinary').v2
-    //const streamifier = require('streamifier')
-    //const Formidable = require('formidable');
+
+//const streamifier = require('streamifier')
+//const Formidable = require('formidable');
 const sequelize = require("./config/connection");
 //app.use(bodyParser.json());
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -34,10 +34,38 @@ const sess = {
 // require('dotenv').config();
 // key = "716937511967295";
 //const cloudinary = require('cloudinary').v2;
+app.use(session(sess));
 
-if (!fs.existsSync("./uploads")) {
-    fs.mkdirSync("./uploads");
-}
+//const upload = multer({ dest: 'uploads/' });
+
+const helpers = require('./utils/helpers');
+
+const hbs = exphbs.create({ helpers });
+
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use("/uploads", express.static("uploads"));
+
+app.use(require('./controllers/'));
+
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () => console.log('Now listening'));
+});
+
+
+// =========================================================
+
+const multer = require('multer');
+const fs = require("fs");
+const cloudinary = require('cloudinary').v2
 
 // Multer setup
 var storage = multer.diskStorage({
@@ -54,31 +82,12 @@ cloudinary.config({
     api_key: '716937511967295',
     api_secret: 'xLr30LmdJkY4EeNjCUeyp47fAbk'
 });
-app.use(session(sess));
+if (!fs.existsSync("./uploads")) {
+    fs.mkdirSync("./uploads");
+}
 
 var upload = multer({ storage: storage, limits: { fieldSize: 10 * 1024 * 1024 } });
 //const upload = multer({ dest: 'uploads/' });
-
-const helpers = require('./utils/helpers');
-
-const hbs = exphbs.create({ helpers });
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-
-
-//app.use(bodyParser.json());
-//app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use("/uploads", express.static("uploads"));
-
-app.use(require('./controllers/'));
-
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
-});
 
 async function uploadToCloudinary(locaFilePath) {
     var mainFolderName = "main";
