@@ -134,38 +134,6 @@ router.post('/', (req, res) => {
       });
   });
 
-  // router.put('/pic/:id', (req, res) => {
-  //   Post.update(
-  //     {
-  //       img_url: req.body.img_url
-  //     },
-  //     {
-  //       where: {
-  //         id: req.params.id
-  //       }
-  //     }
-  //   )
-  //     .then(dbPostData => {
-  //       if (!dbPostData) {
-  //         res.status(404).json({ message: 'No post found with this id' });
-  //         return;
-  //       }
-  //       res.json(dbPostData);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //       res.status(500).json(err);
-  //     });
-  // });
-
-
-
-
-
-
-
-
-
 
   async function uploadToCloudinary(locaFilePath) {
     var mainFolderName = "main";
@@ -191,63 +159,6 @@ router.post('/', (req, res) => {
       });
   }
   
-  // function buildSuccessMsg(urlList) {
-  
-  //   // Building success msg to display on screen
-  //   var response = `<h1>
-  //                  <a href="/">Click to go to Home page</a><br>
-  //                 </h1><hr>`;
-  //   for (var i = 0; i < urlList.length; i++) {
-  //     response += "File uploaded successfully.<br><br>";
-  //     response += `FILE URL: <a href="${urlList[i]}">
-  //                   ${urlList[i]}</a>.<br><br>`;
-  //     response += `<img src="${urlList[i]}" width="200" height="200"/><br><hr>`;
-  //   }
-  
-  //   response += `<br>
-  // <p>Now you can store this url in database or 
-  // // do anything with it  based on use case.</p>
-  // `;
-  //   return response;
-  // }
-  
-  // router.post(
-  //     "/upload",
-  //     upload.single('profile-file'),
-  //     async(req, res, next) => {
-  //         console.log(JSON.stringify(req.file));
-  //         var locaFilePath = req.file.path;
-  //         var result = await uploadToCloudinary(locaFilePath);
-  //         var response = buildSuccessMsg([result.url]);
-  //         return res.send(response);
-  //     }
-  // );
-
-  // router.put('/pic/:id', (req, res) => {
-  //   Post.update(
-  //     {
-  //       img_url: req.body.img_url
-  //     },
-  //     {
-  //       where: {
-  //         id: req.params.id
-  //       }
-  //     }
-  //   )
-  //     .then(dbPostData => {
-  //       if (!dbPostData) {
-  //         res.status(404).json({ message: 'No post found with this id' });
-  //         return;
-  //       }
-  //       res.json(dbPostData);
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //       res.status(500).json(err);
-  //     });
-  // });
-
-
   router.post(
     "/image/:id",
     upload.single('profile-file'),
@@ -275,44 +186,6 @@ router.post('/', (req, res) => {
           console.log(err);
         });
     });
-
-  
-  module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   router.delete('/:id', (req, res) => {
     Post.destroy({
