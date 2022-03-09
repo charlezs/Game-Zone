@@ -62,9 +62,12 @@ As A gamer I WANT to see the posts of the new games I'm interested in SO THAT I 
 ```
 
 # Mockup
+ - Created on Canva
+![Play](https://user-images.githubusercontent.com/90402466/157537192-af7c1dbc-0210-46ae-a9c8-2680f9145836.png)
+
 
 # Data Flow
-
+ - Created on Canva
 ![Presentation](https://user-images.githubusercontent.com/90402466/157536174-22677fa2-85a7-4e37-90d1-2653a30dfda9.png)
 
 
