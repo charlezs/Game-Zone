@@ -71,9 +71,6 @@ Post.init(
     img_url: {
       type: DataTypes.STRING,
       defaultValue: "/assets/images/GZ-default-01.jpg"
-      // validate: {
-      //   isURL: true
-      // }
     }
   },
   {
