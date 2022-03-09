@@ -61,6 +61,13 @@ AS A gamer I WANT to create posts of games that I like SO THAT I can share with 
 As A gamer I WANT to see the posts of the new games I'm interested in SO THAT I know which ones are good.
 ```
 
+# Mockup
+
+# Data Flow
+
+![Presentation](https://user-images.githubusercontent.com/90402466/157536174-22677fa2-85a7-4e37-90d1-2653a30dfda9.png)
+
+
 # Acceptance Criteria
 
 ``` 
