@@ -191,7 +191,7 @@ router.delete('/:id', (req, res) => {
                 res.status(404).json({ message: 'No post found with this id' });
                 return;
             }
-            res.json(dbPostData);
+            document.location.replace('/dashboard');
         })
         .catch(err => {
             console.log(err);

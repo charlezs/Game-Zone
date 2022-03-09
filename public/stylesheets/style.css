@@ -320,7 +320,8 @@ height: 20rem;
 .details-title-small{
     color:deepskyblue;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
+    margin-top: 5px;
 }
 .details-text-small{
     font-size: 14px;
@@ -496,6 +497,11 @@ height: 50vh;
 }
 .form-block{
     margin:auto;
+}
+.status{
+  font-weight: bold;
+  color: #5e17eb;
+  margin: 2px;
 }
 .format-fix{
    margin-left:70px;
