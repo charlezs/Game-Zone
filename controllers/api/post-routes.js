@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const { Post, User, Vote, Comment } = require("../../models");
 const sequelize = require('../../config/connection');
+const upload = require('../../utils/multer');
+const cloudinary = require('../../utils/cloudinary');
+const fs = require("fs");
 
 // get all users
 router.get('/', (req, res) => {
@@ -11,7 +14,7 @@ router.get('/', (req, res) => {
       'post_url',
       'title',
       'created_at',
-      //Bring up image in post
+      // Bring up image in post
       'img_url',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
@@ -48,7 +51,7 @@ router.get('/', (req, res) => {
         'post_url',
         'title',
         'created_at',
-        //Adding in image
+        // Adding in image
         'img_url',
         [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
       ],
@@ -86,8 +89,6 @@ router.post('/', (req, res) => {
       title: req.body.title,
       post_url: req.body.post_url,
       user_id: req.session.user_id,
-      //Adding in create image
-      img_url: req.body.img_url
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
@@ -132,6 +133,60 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
       });
   });
+
+
+  async function uploadToCloudinary(locaFilePath) {
+    var mainFolderName = "main";
+  
+    var filePathOnCloudinary =
+      mainFolderName + "/" + locaFilePath;
+  
+    return cloudinary.uploader
+      .upload(locaFilePath)
+      .then((result) => {
+        fs.unlinkSync(locaFilePath);
+  
+        return {
+          message: "Success",
+          url: result.url,
+        };
+      })
+      .catch((error) => {
+  
+        // Remove file from local uploads folder
+        fs.unlinkSync(locaFilePath);
+        return { message: "Fail" };
+      });
+  }
+  
+  router.post(
+    "/image/:id",
+    upload.single('profile-file'),
+    async (req, res, next) => {
+      var localFilePath = req.file.path;
+       var res = await uploadToCloudinary(localFilePath);
+       Post.update(
+        {
+          img_url: res.url
+        },
+        {
+          where: {
+            id: req.params.id
+          }
+        }
+      )
+        .then(dbPostData => {
+          if (!dbPostData) {
+            res.status(404).json({ message: 'No post found with this id' });
+            return;
+          }
+          const posts = dbPostData.map(post => post.get({ plain: true }));
+          res.render('dashboard', { posts, loggedIn: true });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    });
 
   router.delete('/:id', (req, res) => {
     Post.destroy({

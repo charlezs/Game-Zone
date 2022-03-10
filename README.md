@@ -1,3 +1,4 @@
+
 # Full-Stack GameZone App 
 
       
@@ -95,3 +96,4 @@ Please contact me through the following methods!
 > [My Github account](https://github.com/charles-nyabeze)
 
 > <a href="mailto:charlesnnyabeze@gmail.com">My Email</a> 
+

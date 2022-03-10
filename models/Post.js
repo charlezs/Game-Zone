@@ -67,13 +67,10 @@ Post.init(
         key: 'id'
       }
     },
-    //Here is where the image URL will be saved
+    // Here is where the image URL will be saved
     img_url: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isURL: true
-      }
+      defaultValue: "/assets/images/GZ-default-01.jpg"
     }
   },
   {
