@@ -32,7 +32,7 @@ function loadPage() {
         <div class=upload-container>
         <input type="file" accept="image/*" onchange="loadFile(event)" name="profile-file" id="choose-file" Required />
         </div>
-        <button type="submit" class="btn save-image">Save Image</button>
+        <button type="submit" class="btn save-image" id="save-button">Save Image</button>
     </form>`
     formContainer.innerHTML = html
     }
