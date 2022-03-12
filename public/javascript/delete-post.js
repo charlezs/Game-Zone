@@ -5,6 +5,14 @@ async function deleteFormHandler(event) {
     window.location.toString().split('/').length - 1
   ];
   console.log("=========================", id);
+
+  const commentResponse = await fetch(`/api/comments/${id}`, {
+    method: 'DELETE'
+  });
+
+  // if (!commentResponse.ok) {
+  //   alert(response.statusText);
+  // }
   const response = await fetch(`/api/posts/${id}`, {
     method: 'DELETE'
   });
@@ -15,5 +23,7 @@ async function deleteFormHandler(event) {
     alert(response.statusText);
   }
 }
+
+
 
 document.querySelector('.delete-post-btn').addEventListener('click', deleteFormHandler);
