@@ -180,8 +180,6 @@ router.post('/', (req, res) => {
             res.status(404).json({ message: 'No post found with this id' });
             return;
           }
-          const posts = dbPostData.map(post => post.get({ plain: true }));
-          res.render('dashboard', { posts, loggedIn: true });
         })
         .catch(err => {
           console.log(err);
@@ -208,3 +206,6 @@ router.post('/', (req, res) => {
   });
 
   module.exports = router;
+
+
+  //document.location.replace('/dashboard');
