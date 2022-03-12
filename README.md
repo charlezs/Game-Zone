@@ -32,6 +32,7 @@ A fullstack app built for gamers. Built with MySQL2, Express, Sequelize, dotenv,
 # Usage
 
 Run the commands in the terminal of the project and answer the prompted questions:
+`make a .env file with your credentials`
 
 `mysql -u (username) -p`
 
