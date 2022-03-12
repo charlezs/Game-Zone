@@ -87,9 +87,6 @@ GIVEN a homepage with other users' inputs
 WHEN I select a post created by other users
 THEN I can comment on the post or upvote
 ```
-# Walkthrough
-
-> [Checkout the walkthrough](https://www.loom.com/loading)
 
 # Questions
 Please contact me through the following methods!
