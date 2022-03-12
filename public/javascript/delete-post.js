@@ -10,9 +10,6 @@ async function deleteFormHandler(event) {
     method: 'DELETE'
   });
 
-  // if (!commentResponse.ok) {
-  //   alert(response.statusText);
-  // }
   const response = await fetch(`/api/posts/${id}`, {
     method: 'DELETE'
   });
