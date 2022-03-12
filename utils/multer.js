@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = multer({
     storage: multer.diskStorage({
         destination: function (req, file, cb) {
-            cb(null, "../../uploads");
+            cb(null, "../../app/uploads");
         },
         filename: function (req, file, cb) {
             cb(null, file.originalname);

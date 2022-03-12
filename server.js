@@ -37,8 +37,8 @@ app.use("/uploads", express.static("uploads"));
 app.use(require('./controllers/'));
 
 //veedit's image upload
-if (!fs.existsSync("../../uploads")) {
-    fs.mkdirSync("../../uploads");
+if (!fs.existsSync("../../app/uploads")) {
+    fs.mkdirSync("../../app/uploads");
   }
 
 sequelize.sync({ force: false }).then(() => {
